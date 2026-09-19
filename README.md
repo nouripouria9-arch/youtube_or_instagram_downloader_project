@@ -1,24 +1,22 @@
 # YouTube / Instagram Downloader
 
-A modular Python desktop downloader project built with **PySide6** and **yt-dlp**, supporting accessible YouTube and Instagram video URLs through a graphical Windows-oriented interface.
+A modular Python desktop application for downloading accessible YouTube and Instagram video URLs through a graphical **PySide6** interface with **yt-dlp** as the media backend.
 
-> **Project note:** The source code from the provided project archive is kept unchanged. This repository adds project documentation only and stores the original project archive for distribution.
+> **Source-code note:** The supplied project source has been added to this repository without intentional changes to the application's code logic. Repository work is limited to organizing the supplied source and adding documentation.
 
 ## Overview
 
-This project is organized into separate application layers for the user interface, download/metadata services, workers, models, utilities, configuration, logging, and tests.
-
-At launch, the application lets the user choose between:
+At startup, the application lets the user choose between:
 
 - **YouTube Downloader**
 - **Instagram Downloader**
 
-The selected downloader then validates the URL, retrieves available metadata, displays thumbnail information when available, and runs the download workflow in background Qt threads.
+The selected workflow validates the URL, retrieves available metadata, loads a thumbnail when available, and performs the download in a background Qt worker.
 
 ## Main capabilities
 
 - YouTube and Instagram URL validation
-- Video metadata retrieval through `yt-dlp`
+- Metadata retrieval through `yt-dlp`
 - Thumbnail retrieval
 - Download directory selection
 - Format and quality inputs
@@ -26,7 +24,7 @@ The selected downloader then validates the URL, retrieves available metadata, di
 - Download cancellation support
 - Persistent application settings
 - Logging and exception handling
-- PySide6 desktop interface with theme support
+- PySide6 desktop interface
 - Automated tests for configuration, URL validation, file utilities, and download-service behavior
 
 ## Technology stack
@@ -36,35 +34,35 @@ The selected downloader then validates the URL, retrieves available metadata, di
 - **yt-dlp** — media metadata and download backend
 - **Pillow** — image/icon generation utilities
 - **pytest** — automated testing
-- **FFmpeg** — required for workflows that need media merging or audio post-processing
+- **FFmpeg** — used by workflows that require media merging or audio post-processing
 
 ## Project structure
 
 ```text
-youtube_or_instagram_downloader_professional/
+youtube_or_instagram_downloader_project/
 ├── app/
 │   ├── core/          # Configuration, constants, exceptions, logging, paths
-│   ├── models/        # Data models
+│   ├── models/        # Application data models
 │   ├── services/      # Metadata, download, and FFmpeg services
-│   ├── ui/            # PySide6 main window and styles
+│   ├── ui/            # PySide6 main window and theme
 │   ├── utils/         # URL and file utilities
 │   ├── workers/       # Background Qt workers
 │   └── main.py        # Application entry point
-├── resources/
-│   └── icons/         # Application icon resources
 ├── scripts/
 │   ├── build.py       # PyInstaller build helper
 │   └── generate_icon.py
 ├── tests/
 ├── .gitignore
 ├── pyproject.toml
+├── pyrightconfig.json
 ├── requirements.txt
+├── PROJECT_DESCRIPTION.md
 └── README.md
 ```
 
 ## Installation
 
-Create a virtual environment and install the declared dependencies:
+Create a virtual environment:
 
 ```bash
 python -m venv .venv
@@ -92,7 +90,7 @@ python app/main.py
 
 ## FFmpeg
 
-Install FFmpeg when using workflows that require media merging or audio post-processing. Make sure `ffmpeg` is available on the system `PATH`, or configure its location through the application's settings infrastructure.
+Install FFmpeg when a workflow requires media merging or audio post-processing. The executable should be available on the system `PATH`, or its location can be supplied through the application's configuration infrastructure.
 
 ## Run tests
 
@@ -108,23 +106,17 @@ The project includes a PyInstaller helper:
 python scripts/build.py
 ```
 
-The build helper expects the application icon to exist at:
+The build helper expects:
 
 ```text
 resources/icons/app_icon.ico
 ```
 
-The included `scripts/generate_icon.py` can generate the icon assets.
+The included `scripts/generate_icon.py` can generate the icon assets used by the build configuration.
 
-## Project archive
+## Development notes
 
-The original project package is stored in this repository as:
-
-```text
-youtube_or_instagram_downloader_professional.zip
-```
-
-The archive contains the supplied project files without changes to the Python source code.
+The repository is intended as an evolving project snapshot. Additional features, tests, UI improvements, and platform-specific adjustments can be added through future commits without changing the original source unnecessarily.
 
 ## Usage and rights
 
@@ -132,9 +124,5 @@ This is an independent third-party project and is not affiliated with YouTube, I
 
 Use the application only with content you are authorized to download and in accordance with the relevant platform terms, copyright rules, and applicable local laws.
 
-## Project status
-
-This repository represents a project snapshot and can be updated as development continues.
-
 ---
-Developed as a software-engineering / computer-vision student project and organized for continued iteration.
+Independent software-engineering / computer-vision student project.
