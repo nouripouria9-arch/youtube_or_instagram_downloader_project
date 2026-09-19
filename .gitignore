@@ -1,0 +1,14 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+*.log
+.vscode/
+*.spec
+build/
+dist/
+*.exe
+*.ico
+*.png
+config/
+logs/
