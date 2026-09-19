@@ -125,4 +125,5 @@ This is an independent third-party project and is not affiliated with YouTube, I
 Use the application only with content you are authorized to download and in accordance with the relevant platform terms, copyright rules, and applicable local laws.
 
 ---
-Independent software-engineering / computer-vision student project.
+Written by Pouria Nouri
+Student of Computer Engineering (specializing in AI, image processing, and computer vision), front-end designer, and application developer.
